@@ -155,8 +155,7 @@ class _TopPortion extends StatelessWidget {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                          'https://lh3.googleusercontent.com/ogw/AOLn63GjcxrBvAgXe2SU9fMOSea6dv4ipdDOlkAeWyGKMA=s512',
-                        )),
+                            'https://www.ruparupa.com/blog/wp-content/uploads/2021/10/anjing-Shih-Tzu.jpg')),
                   ),
                 ),
                 Positioned(
