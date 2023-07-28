@@ -1,8 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SettingsPage createState() => _SettingsPage();
+}
+
+class _SettingsPage extends State<SettingsPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  bool darkmodeState = false;
+  bool wifiState = true;
+  bool bluetoothState = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +41,13 @@ class SettingsPage extends StatelessWidget {
                 _CustomListTile(
                   title: "Dark Mode",
                   icon: CupertinoIcons.moon,
-                  trailing:
-                      CupertinoSwitch(value: false, onChanged: (value) {}),
+                  trailing: CupertinoSwitch(
+                      value: darkmodeState,
+                      onChanged: (newValue) {
+                        setState(() {
+                          darkmodeState = newValue;
+                        });
+                      }),
                 ),
                 const _CustomListTile(
                   title: "System Apps Updater",
@@ -49,16 +69,24 @@ class SettingsPage extends StatelessWidget {
                     title: "Wi-Fi",
                     icon: CupertinoIcons.wifi,
                     trailing: CupertinoSwitch(
-                      value: true,
-                      onChanged: (val) {},
+                      value: wifiState,
+                      onChanged: (newValue) {
+                        setState(() {
+                          wifiState = newValue;
+                        });
+                      },
                     ),
                   ),
                   _CustomListTile(
                     title: "Bluetooth",
                     icon: CupertinoIcons.bluetooth,
                     trailing: CupertinoSwitch(
-                      value: false,
-                      onChanged: (val) {},
+                      value: bluetoothState,
+                      onChanged: (newValue) {
+                        setState(() {
+                          bluetoothState = newValue;
+                        });
+                      },
                     ),
                   ),
                   const _CustomListTile(
@@ -104,6 +132,7 @@ class _CustomListTile extends StatelessWidget {
   final String title;
   final IconData icon;
   final Widget? trailing;
+
   const _CustomListTile(
       {Key? key, required this.title, required this.icon, this.trailing})
       : super(key: key);
@@ -114,7 +143,6 @@ class _CustomListTile extends StatelessWidget {
       title: Text(title),
       leading: Icon(icon),
       trailing: trailing ?? const Icon(CupertinoIcons.forward, size: 18),
-      onTap: () {},
     );
   }
 }
