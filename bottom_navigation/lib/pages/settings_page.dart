@@ -16,30 +16,27 @@ class SettingsPage extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(maxWidth: 400),
           child: ListView(
+            key: const PageStorageKey('settings-asdfkjlkajdsf'),
             children: [
-              _SingleSection(
-                title: "General", 
-                children: [
-                  const _CustomListTile(
-                    title: "About Phone",
-                    icon: CupertinoIcons.device_phone_portrait,
-                  ),
-                  _CustomListTile(
-                    title: "Dark Mode",
-                    icon: CupertinoIcons.moon,
-                    trailing:
-                        CupertinoSwitch(
-                          value: false, 
-                          onChanged: (value) {}),
-                  ),
-                  const _CustomListTile(
-                    title: "System Apps Updater",
-                    icon: CupertinoIcons.cloud_download,
-                  ),
-                  const _CustomListTile(
-                    title: "Security Status",
-                    icon: CupertinoIcons.lock_shield,
-                  ),
+              _SingleSection(title: "General", children: [
+                const _CustomListTile(
+                  title: "About Phone",
+                  icon: CupertinoIcons.device_phone_portrait,
+                ),
+                _CustomListTile(
+                  title: "Dark Mode",
+                  icon: CupertinoIcons.moon,
+                  trailing:
+                      CupertinoSwitch(value: false, onChanged: (value) {}),
+                ),
+                const _CustomListTile(
+                  title: "System Apps Updater",
+                  icon: CupertinoIcons.cloud_download,
+                ),
+                const _CustomListTile(
+                  title: "Security Status",
+                  icon: CupertinoIcons.lock_shield,
+                ),
               ]),
               _SingleSection(
                 title: "Network",
@@ -108,10 +105,7 @@ class _CustomListTile extends StatelessWidget {
   final IconData icon;
   final Widget? trailing;
   const _CustomListTile(
-      {Key? key,
-      required this.title,
-      required this.icon,
-      this.trailing})
+      {Key? key, required this.title, required this.icon, this.trailing})
       : super(key: key);
 
   @override

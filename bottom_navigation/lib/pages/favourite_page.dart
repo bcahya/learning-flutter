@@ -15,6 +15,7 @@ class FavouritePage extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(maxWidth: 400),
           child: ListView.builder(
+            key: const PageStorageKey('favourite-asdfljasdf'),
             itemCount: _articles.length,
             itemBuilder: (BuildContext context, int index) {
               final item = _articles[index];
